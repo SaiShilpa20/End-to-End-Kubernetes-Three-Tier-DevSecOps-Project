@@ -97,6 +97,7 @@ pipeline {
                             git config user.name "Saishilpa20"
                             BUILD_NUMBER=${BUILD_NUMBER}
                             echo $BUILD_NUMBER
+                            git remote set-url origin https://${GIT_USER_NAME}:${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}.git
                             git pull origin master
                             imageTag=$(grep -oP '(?<=frontend:)[^ ]+' deployment.yaml)
                             echo $imageTag
